@@ -22,6 +22,6 @@ CREATE TABLE tbl_appointment (
 
 -- Adicionando as chaves estrangeiras
 ALTER TABLE IF EXISTS tbl_appointment ADD CONSTRAINT FKehutpu22rmfam8t4raurkwpis FOREIGN KEY (appointment_type_id) REFERENCES tbl_appointment_type;
-ALTER TABLE IF EXISTS tbl_appointment ADD CONSTRAINT FKhjyakw183cxebiqaw9lwu60ht FOREIGN KEY (area_id) REFERENCES tbl_area;
-ALTER TABLE IF EXISTS tbl_appointment ADD CONSTRAINT FKcxcaw6r3vas3hpphlwrstkg3n FOREIGN KEY (client_id) REFERENCES tbl_client;
-ALTER TABLE IF EXISTS tbl_appointment ADD CONSTRAINT FKd2qv82ltxt451xuweu0cjvdl5 FOREIGN KEY (professional_id) REFERENCES tbl_professional;
+ALTER TABLE IF EXISTS tbl_appointment ADD CONSTRAINT FKhjyakw183cxebiqaw9lwu60ht FOREIGN KEY (area_id) REFERENCES areas;
+ALTER TABLE IF EXISTS tbl_appointment ADD CONSTRAINT FKcxcaw6r3vas3hpphlwrstkg3n FOREIGN KEY (client_id) REFERENCES clients; 
+ALTER TABLE IF EXISTS tbl_appointment ADD CONSTRAINT FKd2qv82ltxt451xuweu0cjvdl5 FOREIGN KEY (professional_id) REFERENCES professionals; 
