@@ -2,6 +2,7 @@
 -- to populate the database with sample data.
 
 -- Delete existing data in the correct order to respect foreign key constraints
+DELETE FROM tbl_appointment;
 DELETE FROM tbl_work_schedule_item;
 DELETE FROM professional_areas;
 -- DELETE FROM tbl_appointment; -- Keep this commented until you test appointment creation
@@ -11,6 +12,7 @@ DELETE FROM areas;
 DELETE FROM tbl_appointment_type;
 
 -- Reset all sequences to ensure IDs start from 1
+ALTER SEQUENCE tbl_appointment_id_seq RESTART WITH 1;
 ALTER SEQUENCE professionals_id_seq RESTART WITH 1;
 ALTER SEQUENCE clients_id_seq RESTART WITH 1;
 ALTER SEQUENCE areas_id_seq RESTART WITH 1;

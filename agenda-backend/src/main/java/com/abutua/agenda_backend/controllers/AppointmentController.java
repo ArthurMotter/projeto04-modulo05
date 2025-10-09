@@ -2,7 +2,7 @@ package com.abutua.agenda_backend.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +13,7 @@ import com.abutua.agenda_backend.dtos.AppointmentRequest;
 import com.abutua.agenda_backend.dtos.AppointmentResponse;
 import com.abutua.agenda_backend.services.AppointmentService;
 
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("appointments")
@@ -22,7 +23,8 @@ public class AppointmentController {
     private AppointmentService appointmentService;
 
     @PostMapping
-    public ResponseEntity<AppointmentResponse> createAppointment(@Validated @RequestBody AppointmentRequest appointmentRequest) {
+    public ResponseEntity<AppointmentResponse> createAppointment(
+            @Valid @RequestBody AppointmentRequest appointmentRequest) {
 
         var appointmentResponse = appointmentService.createAppointment(appointmentRequest);
 

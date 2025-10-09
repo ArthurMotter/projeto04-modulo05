@@ -1,41 +1,25 @@
 package com.abutua.agenda_backend.dtos;
 
+import jakarta.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-/*
-    {
-        "date":"2023-06-26",
-        "startTime": "15:30:00",
-        "endTime": "16:00:00",
-        "comments": "no comments",
-        "type": {
-            "id": 1	
-        },
-        "area": {
-            "id": 2
-        },
-        "professional":  {
-            "id": 5
-        },
-        "client": {
-            "id": 2
-        }    
-    }
-*/  
-
 public record AppointmentRequest(
-      LocalDate date,  
-      LocalTime startTime,
-      LocalTime endTime,
-      String comments,
-      IntegerDTO type,
-      IntegerDTO area,
-      LongDTO professional,
-      LongDTO client  
-) {
-    
+
+        @NotNull(message = "O campo 'date' é obrigatório.") LocalDate date,
+
+        @NotNull(message = "O campo 'startTime' é obrigatório.") LocalTime startTime,
+
+        @NotNull(message = "O campo 'endTime' é obrigatório.") LocalTime endTime,
+
+        String comments,
+
+        @NotNull(message = "O campo 'type' é obrigatório.") IntegerDTO type,
+
+        @NotNull(message = "O campo 'area' é obrigatório.") IntegerDTO area,
+
+        @NotNull(message = "O campo 'professional' é obrigatório.") LongDTO professional,
+
+        @NotNull(message = "O campo 'client' é obrigatório.") LongDTO client) {
+
 }
-
-
-
