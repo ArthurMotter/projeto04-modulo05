@@ -145,6 +145,21 @@ export class CreateAppointmentPageComponent implements OnInit {
     }
   }
 
+  submitAppointment() {
+    if (!this.appointment) return;
+
+    this.appointmentService.save(this.appointment).subscribe({
+      next: () => {
+        this.toastService.showSuccess('Agendamento criado com sucesso!');
+        this.clean();
+      },
+      error: (err) => {
+        const message = err.error?.message || 'Erro ao criar agendamento.';
+        this.toastService.showError(message);
+      }
+    });
+  }
+
   private createAppointmentObject(): Appointment {
     let appointment: Appointment = {} as Appointment;
     appointment = { ...this.formCreateAppointmentComponent.appointmentForm.value };
