@@ -140,22 +140,8 @@ export class CreateAppointmentPageComponent implements OnInit {
     this.checkDateAndTimeErros();
 
     if (this.isAppointmentValid()) {
-      /*
       this.appointment = this.createAppointmentObject();
-      modalConfirm.open({ size: "lg" }).then(confirm => {
-        if (confirm) {
-          this.appointmentService.save(this.appointment).subscribe({
-            next: () => {
-              this.toastService.showSuccess('Agendamento criado com sucesso!');
-              this.clean();
-            },
-            error: (e) => {
-              this.toastService.showError('Erro ao criar agendamento.');
-            }
-          });
-        }
-      });
-      */
+      modalConfirm.open();
     }
   }
 
@@ -181,6 +167,5 @@ export class CreateAppointmentPageComponent implements OnInit {
   private isAppointmentValid(): boolean {
     return !!(this.formCreateAppointmentComponent.appointmentForm.valid && this.selectedDate && this.selectedTime);
   }
-
 
 }
