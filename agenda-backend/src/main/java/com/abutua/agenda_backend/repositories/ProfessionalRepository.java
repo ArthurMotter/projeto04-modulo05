@@ -14,4 +14,6 @@ public interface ProfessionalRepository extends JpaRepository<Professional, Inte
 
     @Query("SELECT COUNT(p) > 0 FROM Professional p JOIN p.areas a WHERE p.id = :professionalId AND a.id = :areaId")
     boolean existsAssocioationWithArea(Integer professionalId, Integer areaId);
+    
+    Page<Professional> findByAreas_IdAndActiveTrue(Integer areaId, Pageable pageable);
 }
