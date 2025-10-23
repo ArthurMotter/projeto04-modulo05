@@ -58,17 +58,17 @@ describe('FormCreateAppointmentComponent', () => {
   });
 
   it('should emit selectedProfessionalEvent when professional changes', () => {
-    spyOn(component.selectedProfessionalEvent, 'emit');
-    
-    const mockProfessional: Professional = { id: 1, name: 'Ana Silva', areas: [], active: true, email: '', phone: '' };
+  spyOn(component.selectedProfessionalEvent, 'emit');
+  
+  const mockProfessional: Professional = { id: 1, name: 'Ana Silva', areas: [], active: true, email: '', phone: '' };
 
-    // Set the value of the professional form control
-    component.appointmentForm.controls['professional'].setValue(mockProfessional);
-    
-    // Manually trigger the method
-    component.onProfessionalChanged();
-    fixture.detectChanges();
+  component.appointmentForm.controls['professional'].enable();
 
-    expect(component.selectedProfessionalEvent.emit).toHaveBeenCalledWith(mockProfessional);
-  });
+  // Set the value of the professional form control
+  component.appointmentForm.controls['professional'].setValue(mockProfessional);
+  
+  component.onProfessionalChanged();
+
+  expect(component.selectedProfessionalEvent.emit).toHaveBeenCalledWith(mockProfessional);
+});
 });

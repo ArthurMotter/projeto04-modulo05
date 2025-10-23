@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { AppointmentService } from './appointment.service';
 import { AppointmentType, Appointment, AppointmentRequest } from '../models/appointment.models';
-import { environment } from '../../../environments/environment';
+import { environment } from '../../../environments/environment.development';
 
 describe('AppointmentService', () => {
   let service: AppointmentService;
